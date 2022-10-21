@@ -42,7 +42,7 @@ const SortModal = () => {
     try {
       if (settings) {
         const { data } = await axiosInstance.get(
-          `/content-manager/collection-types/${contentTypePath}?sort=rank:asc`
+          `/content-manager/collection-types/${contentTypePath}?sort=rank:asc&pagination[start]=0&pagination[limit]=1000`
         );
         if (data.results.length > 0 && !!toString(data.results[0][settings.rank]) && !!data.results[0][settings.title]) {
           setActive(true);
